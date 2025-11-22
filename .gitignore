@@ -9,14 +9,14 @@ db.sqlite3
 *.log
 
 # Environment
-#.env
+.env
 
 # OS files
 .DS_Store
 
 # Binaries
-github-mcp-server
-mcpcurl
+#github-mcp-server
+#mcpcurl
 
 # Virtual environment
 venv/

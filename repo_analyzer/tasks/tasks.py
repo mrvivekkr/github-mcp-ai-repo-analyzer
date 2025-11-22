@@ -32,24 +32,31 @@ def analyze_repo_structure_task(owner: str, repo: str):
                 "\n"
                 "Generate a complete, hierarchical Markdown tree structure."
             ),
-            expected_output = (
-                "A well-formatted Markdown directory tree with:\n"
-                "- Proper indentation showing hierarchy (use 2 spaces per level)\n"
-                "- Directory names ending with '/' (e.g., src/)\n"
-                "- File names as clickable links: [filename](github_url)\n"
-                "- Important directories explored 3-4 levels deep\n"
-                "- Less important directories summarized at 1-2 levels\n"
-                "- Clear section headers for major directory groups\n"
-                "- File counts for summarized directories (e.g., 'config/ (15 files)')\n"
-                "- Example format:\n"
-                "  ```\n"
-                "  project/\n"
-                "    src/\n"
-                "      main/\n"
-                "        java/\n"
-                "          [App.java](url)\n"
-                "    tests/ (25 files)\n"
-                "  ```"
+            # expected_output = (
+            #     "A well-formatted Markdown directory tree with:\n"
+            #     "- Proper indentation showing hierarchy (use 2 spaces per level)\n"
+            #     "- Directory names ending with '/' (e.g., src/)\n"
+            #     "- File names as clickable links: [filename](github_url)\n"
+            #     "- Important directories explored 3-4 levels deep\n"
+            #     "- Less important directories summarized at 1-2 levels\n"
+            #     "- Clear section headers for major directory groups\n"
+            #     "- File counts for summarized directories (e.g., 'config/ (15 files)')\n"
+            #     "- Example format:\n"
+            #     "  ```\n"
+            #     "  project/\n"
+            #     "    src/\n"
+            #     "      main/\n"
+            #     "        java/\n"
+            #     "          [App.java](url)\n"
+            #     "    tests/ (25 files)\n"
+            #     "  ```"
+            # ),
+            expected_output=(
+                "A Markdown code block tree with:\n"
+                "- Up to 3 levels deep, 2 spaces per indent\n"
+                "- Directory names ending with '/'\n"
+                "- File names as clickable links\n"
+                "- Directories deeper than level 3 shown as 'folder/ (N files)'"
             ),
             agent = repo_structure_auditor,
             tools = [get_repo_files],
@@ -62,15 +69,17 @@ def analyze_repo_structure_task(owner: str, repo: str):
 def get_issue_tasks(owner: str, repo: str):
     fetch_issue_task = Task(
         description = (
-            f"Use the 'get_open_issues' tool to fetch a list of all open issues from the {owner}/{repo} repository. "
-            "Once you have the data, analyze it to identify key themes, active discussions, and possible blockers. "
-            "Summarize the issues in Markdown format. Provide helpful insights, and recommend which issue should be prioritized and why."
+            f"Fetch open issues for the {owner}/{repo} repository and summarize them in Markdown.\n"
+            "Format each issue as a bulleted list item: `- [Title](URL): short category or summary`.\n"
+            "Example:\n"
+            "- [Fix broken tool integration](https://github.com/owner/repo/issues/42): Bug\n"
+            "- [Refactor API](https://github.com/owner/repo/issues/43): Enhancement\n"
+            "Add priorities/recommendations as a summary paragraph at the end."
         ),
         expected_output = (
-            "A Markdown-formatted report containing:\n"
-            "- A list of the most relevant open issues (title + URL)\n"
-            "- Grouping or categorization of the issues if patterns exist\n"
-            "- A short analysis or recommendation on which issue should be tackled first"
+            "A Markdown heading:\n"
+            "## Open Issues Summary for {owner}/{repo}\n"
+            "Followed by a bulleted list of issues (`- [Title](URL): category/summary`)."
         ),
         agent = issue_analyst,
         tools = [get_open_issues],
@@ -95,9 +104,20 @@ def list_pull_requests_tasks(owner: str, repo: str):
 
 def list_branches_tasks(owner: str, repo: str):
     lsit_branches_task = Task(
-        description = f"Fetch a list of 5 branches created from the {owner}/{repo} repository using the 'get_repo_branches' tool. Analyze the provided lists to identify key themes, active discussions, and potential areas of focus.",
-        expected_output = f"A Markdown-formatted summary of the repository's branches. Provide a concise and categorical summary of the requests and your feedback for it.",
-        agent = repo_branch_reporter,
+        description = (
+            f"List 5 branches for the {owner}/{repo} repository. Output each branch as a bullet:\n"
+            "`- `branch-name`: summary or focus of this branch`\n"
+            "Example:\n"
+            "- `main`: production/default branch\n"
+            "- `feature/auth`: adds authentication module\n"
+            "Begin section with a Markdown heading:\n"
+            "## Branches Summary for {owner}/{repo} Repository"
+        ),
+        expected_output = (
+            "Markdown heading: ## Branches Summary for {owner}/{repo} Repository\n"
+            "Bulleted list: - `branch-name`: short description\n"
+            "Brief insights if needed."
+        ),agent = repo_branch_reporter,
         tools = [get_repo_branches],
         output_file = "/generated_docs/branches.md",
         create_directory = True,

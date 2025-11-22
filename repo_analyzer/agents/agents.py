@@ -15,25 +15,41 @@ from ..tools.branch_lister import get_repo_branches
 #         tools = [get_repo_files],
 #         verbose = True        
 #     )
+# repo_structure_auditor = Agent(
+#     role = "Repository Structure Auditor",
+#     goal = (
+#         "Systematically explore and document the complete directory structure "
+#         "of a GitHub repository, creating a hierarchical tree that accurately "
+#         "represents the project organization. Prioritize important directories "
+#         "and provide clear navigation paths."
+#     ),
+#     backstory = (
+#         "You are an expert at analyzing software repository structures. "
+#         "You understand common project layouts (src/, tests/, docs/, config/, etc.) "
+#         "and can identify the most important directories. You systematically "
+#         "traverse directories, going deeper into critical paths while summarizing "
+#         "less important areas. You create clear, navigable tree structures that "
+#         "help developers quickly understand project organization."
+#     ),
+#     tools = [get_repo_files],  # Add recursive tool
+#     verbose = True
+# )
+
 repo_structure_auditor = Agent(
-    role = "Repository Structure Auditor",
-    goal = (
-        "Systematically explore and document the complete directory structure "
-        "of a GitHub repository, creating a hierarchical tree that accurately "
-        "represents the project organization. Prioritize important directories "
-        "and provide clear navigation paths."
+    role="Repository Structure Auditor",
+    goal=(
+        "Generate a Markdown-based hierarchical tree showing up to 3 levels of the repository directory structure, "
+        "with directories ending with '/', files indented by 2 spaces per depth, and file names as clickable links. "
+        "Summarize any folders deeper than 3 levels as 'folder/ (N files)'."
     ),
-    backstory = (
-        "You are an expert at analyzing software repository structures. "
-        "You understand common project layouts (src/, tests/, docs/, config/, etc.) "
-        "and can identify the most important directories. You systematically "
-        "traverse directories, going deeper into critical paths while summarizing "
-        "less important areas. You create clear, navigable tree structures that "
-        "help developers quickly understand project organization."
+    backstory=(
+        "You specialize in clear, readable visualization of file organization. Your output is always a hierarchy tree "
+        "with indents and clickable filenames, not just a flat list."
     ),
-    tools = [get_repo_files],  # Add recursive tool
-    verbose = True
+    tools=[get_repo_files],
+    verbose=True
 )
+
 
 ## GitHub Issue Analyst
 issue_analyst = Agent(

@@ -9,7 +9,7 @@ def mcp_tool(command_args: list[str]) -> dict or list or str or None:
     Executes mcpcurl with the given command arguments and returns the JSON response.
     """
     mcpcurl_path = os.path.join(os.getcwd(), 'mcpcurl')  # Assuming mcpcurl is in the project root
-    github_mcp_server_path = os.path.join(os.getcwd(), '..', 'github-mcp-server', 'github-mcp-server')
+    github_mcp_server_path = os.path.join(os.getcwd(), 'github-mcp-server')
     base_command = [
         mcpcurl_path,
         f'--stdio-server-cmd={github_mcp_server_path} --toolsets all stdio'
