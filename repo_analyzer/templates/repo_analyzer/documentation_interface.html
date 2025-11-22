@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GitHub Repo Documentation Generator</title>
+</head>
+<body>
+    <h1>Generate Documentation for GitHub Repository</h1>
+    
+        <form method="post" action="{% url 'generate_documentation' %}">
+        {% csrf_token %}
+        <div>
+            <label for="repo_url">GitHub Repository URL:</label>
+            <input type="url" id="repo_url" name="repo_url" size="60" placeholder="e.g., https://github.com/owner/repo">
+        </div>
+        <button type="submit">Generate Documentation</button>
+    </form>
+</body>
+</html>

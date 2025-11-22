@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated GitHub Documentation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre;
+        }
+        a {
+            color: #0366d6;
+        }
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Documentation</h1>
+
+    {% if documentation %}
+    <div id="documentationContent">
+        {{ documentation|safe }}
+    </div>    
+    {% else %}
+        <p>No documentation generated yet.</p>
+    {% endif %}
+
+    <hr>
+    <p><a href="{% url 'documentation_interface' %}">Generate Documentation for Another Repository</a></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('documentationContent');
+            if (!content) return;
+            
+            // Convert markdown links [text](url) to HTML links with filename only
+            const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+            let html = content.innerHTML;
+            
+            html = html.replace(markdownLinkRegex, function(match, text, url) {
+                // Extract filename from text
+                let filename = text;
+                if (text.includes('/')) {
+                    filename = text.split('/').pop();
+                }
+                return '<a href="' + url + '">' + filename + '</a>';
+            });
+            
+            content.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

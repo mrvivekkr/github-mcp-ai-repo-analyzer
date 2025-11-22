@@ -1,0 +1,32 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Django/coverage stuff
+db.sqlite3
+*.sqlite3
+*.log
+
+# Environment
+#.env
+
+# OS files
+.DS_Store
+
+# Binaries
+github-mcp-server
+mcpcurl
+
+# Virtual environment
+venv/
+env/
+
+# Misc
+.idea/
+.vscode/
+*.swp
+
+
+# Generated documentation
+generated_docs/
