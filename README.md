@@ -44,11 +44,15 @@ cp github-mcp-server mcpcurl /path/to/your/project/
   ```
 
 3. **Install Python Dependencies**
+```
 pip install -r requirements.txt
+```
 
 
 4. **Run the Server**
+```
 python manage.py runserver 127.0.0.1:8000
+```
 
 - Access [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
