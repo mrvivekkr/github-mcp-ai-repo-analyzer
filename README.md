@@ -16,7 +16,7 @@ See example documentation generated for the GitHub MCP Server repo:
 
 - [Sample HTML Report](./sample_reports/Generated-GitHub-Documentation.html)
 
-These files illustrate how this tool visualizes repository structure, open issues, pull requests, and more.
+Above sample file illustrate how this tool visualizes repository structure, open issues, pull requests, and more.
 
 ---
 
@@ -47,11 +47,10 @@ cp github-mcp-server mcpcurl /path/to/your/project/
 pip install -r requirements.txt
 
 
-4. **Apply Migrations and Run**
-python manage.py migrate
-python manage.py runserver
+4. **Run the Server**
+python manage.py runserver 127.0.0.1:8000
 
-- Access [http://localhost:8000](http://localhost:8000) in your browser.
+- Access [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 ---
 
