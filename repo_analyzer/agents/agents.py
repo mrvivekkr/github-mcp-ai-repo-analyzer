@@ -54,10 +54,11 @@ repo_structure_auditor = Agent(
 ## GitHub Issue Analyst
 issue_analyst = Agent(
     role = "GitHub Issue Analyst",
-    goal = "Fetch and summarize open GitHub issues, and suggest which issue should be prioritized.",
+    goal = "Fetch and summarize ONLY open issues from the GitHub repository. Do NOT include any pull requests, and suggest which issue should be prioritized.",
     backstory = (
         "You are an experienced open-source contributor who can identify, retrieve, and analyze GitHub issues. "
         "You know how to summarize them effectively and highlight the ones that need urgent attention."
+        "You always exclude pull requests from your summary."
     ),
     tools = [get_open_issues],
     verbose = True

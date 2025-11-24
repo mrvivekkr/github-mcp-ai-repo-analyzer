@@ -79,7 +79,7 @@ def get_issue_tasks(owner: str, repo: str):
         expected_output = (
             "A Markdown heading:\n"
             "## Open Issues Summary for {owner}/{repo}\n"
-            "Followed by a bulleted list of issues (`- [Title](URL): category/summary`)."
+            "Followed by a bulleted list of only issues (no pull requests): - [Title](URL): summary (`- [Title](URL): category/summary`)."
         ),
         agent = issue_analyst,
         tools = [get_open_issues],

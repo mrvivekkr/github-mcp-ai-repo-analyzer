@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)http://localhost:8000/generate/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Generated GitHub Documentation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: monospace;
+            white-space: pre;
+        }
+        a {
+            color: #0366d6;
+        }
+        hr {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Documentation</h1>
+
+    
+    <div id="documentationContent">
+        <h1>Summary for github/github-mcp-server</h1>
+<hr>
+<pre><code class="language-markdown">github-mcp-server/
+  .dockerignore
+  .gitignore
+  .golangci.yml
+  .goreleaser.yaml
+  CODE_OF_CONDUCT.md
+  CONTRIBUTING.md
+  Dockerfile
+  LICENSE
+  README.md
+  SECURITY.md
+  SUPPORT.md
+  gemini-extension.json
+  go.mod
+  go.sum
+  server.json
+  docs/
+    error-handling.md
+    host-integration.md
+    installation-guides/
+      README.md
+      install-claude.md
+      install-codex.md
+      install-cursor.md
+      install-gemini-cli.md
+      install-other-copilot-ides.md
+      install-windsurf.md
+    policies-and-governance.md
+    remote-server.md
+    testing.md
+  cmd/
+    github-mcp-server/
+      <a href="https://github.com/github/github-mcp-server/blob/main/cmd/github-mcp-server/generate_docs.go">generate_docs.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/cmd/github-mcp-server/main.go">main.go</a>
+    mcpcurl/
+      <a href="https://github.com/github/github-mcp-server/blob/main/cmd/mcpcurl/README.md">README.md</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/cmd/mcpcurl/main.go">main.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/cmd/mcpcurl/mcpcurl">mcpcurl</a>
+  internal/
+    ghmcp/
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/ghmcp/server.go">server.go</a>
+    githubv4mock/
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/githubv4mock/githubv4mock.go">githubv4mock.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/githubv4mock/local_round_tripper.go">local_round_tripper.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/githubv4mock/objects_are_equal_values.go">objects_are_equal_values.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/githubv4mock/objects_are_equal_values_test.go">objects_are_equal_values_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/githubv4mock/query.go">query.go</a>
+    profiler/
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/profiler/profiler.go">profiler.go</a>
+    toolsnaps/
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/toolsnaps/toolsnaps.go">toolsnaps.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/internal/toolsnaps/toolsnaps_test.go">toolsnaps_test.go</a>
+  pkg/
+    buffer/
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/buffer/buffer.go">buffer.go</a>
+    errors/
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/errors/error.go">error.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/errors/error_test.go">error_test.go</a>
+    github/
+      __toolsnaps__/
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/actions.go">actions.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/actions_test.go">actions_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning.go">code_scanning.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/code_scanning_test.go">code_scanning_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools.go">context_tools.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/context_tools_test.go">context_tools_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot.go">dependabot.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/dependabot_test.go">dependabot_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions.go">discussions.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/discussions_test.go">discussions_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/dynamic_tools.go">dynamic_tools.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/feature_flags.go">feature_flags.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/gists.go">gists.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/gists_test.go">gists_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/git.go">git.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/helper_test.go">helper_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/instructions.go">instructions.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/instructions_test.go">instructions_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/issues.go">issues.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/issues_test.go">issues_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/labels.go">labels.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/labels_test.go">labels_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/minimal_types.go">minimal_types.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/notifications.go">notifications.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/notifications_test.go">notifications_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/projects.go">projects.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/projects_test.go">projects_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/pullrequests.go">pullrequests.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/pullrequests_test.go">pullrequests_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories.go">repositories.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/repositories_test.go">repositories_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/repository_resource.go">repository_resource.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/repository_resource_test.go">repository_resource_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/search.go">search.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/search_test.go">search_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/search_utils.go">search_utils.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/search_utils_test.go">search_utils_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/secret_scanning.go">secret_scanning.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/secret_scanning_test.go">secret_scanning_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories.go">security_advisories.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/security_advisories_test.go">security_advisories_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/server.go">server.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/server_test.go">server_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/tools.go">tools.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/tools_test.go">tools_test.go</a>
+      <a href="https://github.com/github/github-mcp-server/blob/main/pkg/github/workflow_prompts.go">workflow_prompts.go</a>
+    lockdown/ (N files)
+    log/ (N files)
+    raw/ (N files)
+    sanitize/ (N files)
+    toolsets/ (N files)
+    translations/ (N files)
+  script/
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/generate-docs">generate-docs</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/get-discussions">get-discussions</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/get-me">get-me</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/licenses">licenses</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/licenses-check">licenses-check</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/lint">lint</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/prettyprint-log">prettyprint-log</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/tag-release">tag-release</a>
+    <a href="https://github.com/github/github-mcp-server/blob/main/script/test">test</a>
+  third-party/
+    github.com/ (N files)
+    go.yaml.in/ (N files)
+    golang.org/ (N files)
+    gopkg.in/ (N files)
+</code></pre>
+<hr>
+<pre><code>## Open Issues Summary for github/github-mcp-server
+- <a href="https://github.com/github/github-mcp-server/issues/1476">Query on availability of Delete Branch tool</a>: Tool proposal - Asked whether a "Delete Branch" tool exists or is planned with guardrails.
+- <a href="https://github.com/github/github-mcp-server/issues/1471">Proxima pull request action links to wrong url</a>: Bug - PR review action fails due to malformed URL including '/repos' incorrectly.
+- <a href="https://github.com/github/github-mcp-server/issues/1470">Consider shipping MCPB bundle</a>: Enhancement - Proposal to ship MCP servers as zip bundles for easier installation without Docker.
+
+Priority recommendation: The issue about the Proxima pull request action linking to a wrong URL (#1471) should be prioritized as it affects basic functionality of reviewing PRs, which is likely critical to user workflow and may cause blocking issues. The tool proposal (#1476) and enhancement (#1470) can follow after addressing this critical bug.
+</code></pre>
+<hr>
+<h1>Summary of 5 Most Recently Created Pull Requests in github/github-mcp-server</h1>
+<h2>Dependency Updates</h2>
+<ul>
+<li>
+<p><a href="https://github.com/github/github-mcp-server/pull/1480">PR #1480</a> - build(deps): bump actions/checkout from 5 to 6<br>
+  Updates GitHub Actions checkout action to v6 with improved credential persistence and Node.js 24 support. This is a routine dependency update to keep the CI environment current.</p>
+</li>
+<li>
+<p><a href="https://github.com/github/github-mcp-server/pull/1382">PR #1382</a> - build(deps): bump github.com/migueleliasweb/go-github-mock from 1.3.0 to 1.5.0<br>
+  Upgrades the go-github-mock dependency with minor fixes and updates to GitHub definitions and Go version compatibility for testing purposes.</p>
+</li>
+</ul>
+<h2>Documentation Improvement</h2>
+<ul>
+<li><a href="https://github.com/github/github-mcp-server/pull/1370">PR #1370</a> - Revise GitHub MCP configuration in README<br>
+  Updates README to revise GitHub MCP integration JSON configuration, removing outdated MCP structure and adding new server and input format. Improves clarity and simplifies user instructions.</li>
+</ul>
+<h2>Feature/Enhancement: Tool-Specific MCP Configuration</h2>
+<ul>
+<li><a href="https://github.com/github/github-mcp-server/pull/1394">PR #1394</a> - Tommy/tool-specific-config-support<br>
+  Adds support for specifying tool-specific MCP configurations via the <code>--tools</code> flag, allowing users to enable particular tools or mix multiple configurations flexibly. Also includes validation for invalid tool names. This PR enhances configurability and customization in MCP server usage.</li>
+</ul>
+<h2>Migration</h2>
+<ul>
+<li><a href="https://github.com/github/github-mcp-server/pull/1428">PR #1428</a> - Convert to <code>modelcontextprotocol/go-sdk</code><br>
+  Migrates the project from the mark3labs/mcp-go SDK to the modelcontextprotocol/go-sdk. This is a significant internal refactor to update and unify the underlying SDK usage, likely improving maintainability and alignment with current MCP standards.</li>
+</ul>
+<hr>
+<h3>Key Themes and Focus Areas</h3>
+<ul>
+<li><strong>Dependency Upgrades:</strong> There is active maintenance to keep dependencies, especially Go modules and GitHub Actions, up to date.</li>
+<li><strong>Configuration and Usability:</strong> Efforts to improve MCP configuration usability and documentation are in progress, which enhances user onboarding and integration clarity.</li>
+<li><strong>Modularity and Flexibility:</strong> The addition of tool-specific configuration via flags reflects a push towards more modular and customizable MCP server configurations.</li>
+<li><strong>SDK Upgrades:</strong> The migration to a new Go SDK highlights ongoing modernization and potential architectural improvements.</li>
+</ul>
+<p>Overall, these pull requests show an active repository with a strong focus on dependability, user experience improvements, and foundational code quality enhancements.</p>
+<hr>
+<h2>Branches Summary for github/github-mcp-server Repository</h2>
+<ul>
+<li><code>420-failed-api-calls-should-not-be-failures-not-errors</code>: Focuses on handling failed API calls as errors rather than failures, likely improving error handling robustness.</li>
+<li><code>SamMorrowDrums-patch-1</code>: A patch branch likely containing minor fixes or updates contributed by user SamMorrowDrums.</li>
+<li><code>SamMorrowDrums-patch-2</code>: A follow-up patch branch by SamMorrowDrums, possibly built on top of patch-1 with additional fixes.</li>
+<li><code>actions-consolidated</code>: Branch possibly aimed at consolidating or optimizing GitHub Actions workflows.</li>
+<li><code>actions-improvements</code>: Branch focused on enhancing or improving GitHub Actions configurations or scripts.</li>
+</ul>
+<p>These branch names suggest ongoing improvements in error handling, patch fixes, and CI workflow enhancements.</p>
+    </div>    
+    
+
+    <hr>
+    <p><a href="http://localhost:8000/">Generate Documentation for Another Repository</a></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('documentationContent');
+            if (!content) return;
+            
+            // Convert markdown links [text](url) to HTML links with filename only
+            const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+            let html = content.innerHTML;
+            
+            html = html.replace(markdownLinkRegex, function(match, text, url) {
+                // Extract filename from text
+                let filename = text;
+                if (text.includes('/')) {
+                    filename = text.split('/').pop();
+                }
+                return '<a href="' + url + '">' + filename + '</a>';
+            });
+            
+            content.innerHTML = html;
+        });
+    </script>
+
+</body></html>
